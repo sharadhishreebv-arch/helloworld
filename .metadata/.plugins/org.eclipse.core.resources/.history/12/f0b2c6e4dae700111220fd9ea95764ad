@@ -1,0 +1,82 @@
+package data_processing;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * Servlet implementation class Studentdata
+ */
+@WebServlet("/Studentdata")
+public class Studentdata extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public Studentdata() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
+		String name= request.getParameter("name");
+		String usn= request.getParameter("usn");
+		String department= request.getParameter("department");
+		
+		int m1 = Integer.parseInt(request.getParameter("m1"));
+		int m2 = Integer.parseInt(request.getParameter("m2"));
+		int m3 = Integer.parseInt(request.getParameter("m3"));
+		
+		int total = m1+m2+m3;
+		double avg = total/3.0;
+		String grade;
+		if (m1<40 || m2<40 || m3<40 )
+		{
+			grade="fail";
+		}
+		else if (avg>=90)
+		{
+			grade="A";
+		}
+		else if (avg>=75)
+		{
+			grade="B";
+		}
+		else if (avg>=60)
+		{
+			grade="c";
+		}
+		else
+		{
+			grade="D";
+		}
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Student Result</title>");
+		out.println("</style>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<div class='result'>");
+		out.println("<h2>Student Result</h2>");
+		
+	}
+
+}
+

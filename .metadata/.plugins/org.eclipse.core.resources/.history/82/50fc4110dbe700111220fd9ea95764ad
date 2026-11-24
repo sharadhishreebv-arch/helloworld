@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title> Student Data Processing </title>
+<style> 
+body{
+font-family:Arial;
+background-color:#f2f2f2;
+}
+.container{
+width:400px;
+margin 40 px auto;
+padding:25px:
+background-color:white;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+h2{
+text-align:center;
+color:darkblue;
+}
+label{
+font-weight:bold;
+}
+input,select{
+width:100%;
+padding:8px;
+margin-top:5px;
+margin-bottom:15px;
+box-sizing:border-box;
+}
+input[type=submit],input[type=reset]{
+background-color:darkblue;
+color:white;
+border:none;
+padding:10px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+        <div class="container">
+        <h2> Student Data Processing </h2>
+        <form action ="StudentServlet" method="post">
+        <label> Student Name:</label>
+        <input type ="text" name= "name" required>
+        <label>USN</label>
+        <input type ="text" name= "usn" required>
+        <label>Department:</label>
+        <select name= "department" required>
+        <option value ="CSE">CSE</option> 
+        <option value ="ecE">ecE</option> 
+        <option value ="aiml">aiml</option> 
+        </select>
+        
+        <label> Student 1 marsks:</label>
+        <input type ="number" name= "m1" min="0" max ="100" required>
+         <label> Student 2 marsks:</label>
+        <input type ="number" name= "m2" min="0" max ="100" required>
+         <label> Student 3 marsks:</label>
+        <input type ="number" name= "m3" min="0" max ="100" required>
+        
+        <input type ="submit" value= "Process Data">
+       
+        <input type ="reset" value= "clear">
+        </form>
+        </div>
+</body>
+</html>
